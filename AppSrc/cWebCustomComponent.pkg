@@ -1,0 +1,24 @@
+Use cWebBaseControl.pkg
+
+Class cWebCustomComponent is a cWebBaseControl
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set psJSClass to "WebCustomComponent"
+        Set pbShowLabel to False
+        
+        { WebProperty=Client }
+        Property Integer piHeight 0
+        { WebProperty=Client }
+        Property Integer piMinHeight 0
+
+        // Add web properties here
+    End_Procedure
+
+    Procedure End_Construct_Object
+        Forward Send End_Construct_Object
+
+        // Publish event methods here
+    End_Procedure
+    
+End_Class
