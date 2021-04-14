@@ -37,15 +37,17 @@ On GitHub you can download a ZIP file containing this repository from the green 
 
 ### Step 2 - Unzip in your DataFlex project
 
-Extract the ZIP file on your disk. This will create a "dataflex-custom-component" folder. Copy or move the entire contents of that folder into your DataFlex project. This will add one file to your AppSrc folder, a new "src" folder and some files in the root of your project.
+Extract the ZIP file on your disk. This will create a "dataflex-custom-component-master" folder. Copy or move the entire contents of that folder into your DataFlex project. This will add one file to your AppSrc folder, a new "src" folder and some files in the root of your project.
 
 ### Step 3 - Install NodeJS (if you haven't already)
 
 Download the latest LTS release of NodeJS [from here](https://nodejs.org/en/download/). The template needs at least version 12. Install it. Then open a command prompt in your DataFlex project folder and run
 
-    > npm install
+    > npm ci
     
 This will download the dependencies of the template.
+
+_If you know NodeJS already, you might wonder why not "npm install". The "ci" command is simply a lot quicker and just as good for this purpose._
 
 ### Step 4 - Do a test build
 
@@ -55,7 +57,7 @@ In the command prompt run
 
 This bundles the client-side of the component into your "AppHtml/Custom" folder, and should end with something similar to
 
-    webpack 5.21.2 compiled successfully in 3495 ms
+    webpack 5.25.0 compiled successfully in 3495 ms
 
 ### Step 5 - Rename your component
 
