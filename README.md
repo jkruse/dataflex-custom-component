@@ -41,9 +41,9 @@ Extract the ZIP file on your disk. This will create a "dataflex-custom-component
 
 ### Step 3 - Install NodeJS (if you haven't already)
 
-Download the latest LTS release of NodeJS [from here](https://nodejs.org/en/download/). The template needs at least version 12. Install it. Then open a command prompt in your DataFlex project folder and run
+Download the latest LTS release of NodeJS [from here](https://nodejs.org/en/download/). The template needs at least version 12.13.0. Install it. Then open a command prompt in your DataFlex project folder and run
 
-    > npm ci
+    npm ci
     
 This will download the dependencies of the template.
 
@@ -53,11 +53,11 @@ _If you know NodeJS already, you might wonder why not "npm install". The "ci" co
 
 In the command prompt run
 
-    > npm run build
+    npm run build
 
 This bundles the client-side of the component into your "AppHtml/Custom" folder, and should end with something similar to
 
-    webpack 5.25.0 compiled successfully in 3495 ms
+    webpack 5.70.0 compiled successfully in 3495 ms
 
 ### Step 5 - Rename your component
 
@@ -74,20 +74,20 @@ Add properties, events, markup and functions as needed to the pkg and js files. 
 
 While developing your component, you can run
 
-    > npm run watch
+    npm run watch
 
 This will build a debug-version of the component client-side, and automatically rebuild every time you change index.js or index.css (or anything else you include).
 
 To build for production, just run
 
-    > npm run build
+    npm run build
 
 ### Step 8 - Add the component to your Index.html
 
 To use the component in your application, you need to add the client-side files to your Index.html. You should also add CoreJS, which polyfills any new language features you might have used, that are not natively supported by older browsers:
 
 ```html
-<script src="https://unpkg.com/core-js-bundle@3.8.3/minified.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/core-js-bundle@3/minified.js"></script>
 <script src="Custom/index.js"></script>
 <link rel="stylesheet" href="Custom/index.css">
 ```
@@ -127,8 +127,8 @@ The template includes an empty stylesheet file "src/index.css". You can put any 
 
 ### Changing browser support
 
-The build process will rewrite any ECMAScript syntax you use, that is not yet supported by the browsers you want your application to run in. To do this, it needs to know which browsers that is. This is based on a set of rules in ".browserslistrc". The template ships with a reasonable default, but you change it if you need to support older browsers, or if, say, you don't want to support Internet Explorer 11. Run this to see the list of browsers supported:
+The build process will rewrite any ECMAScript syntax you use, that is not yet supported by the browsers you want your application to run in. To do this, it needs to know which browsers that is. This is based on a set of rules in ".browserslistrc". The template ships with a reasonable default, but you change it if you need to support older browsers, or if you wish to narrow support to, say, only recent versions of Chrome, Edge, Firefox and Safari. Note that Internet Explorer 11 support is now off by default. If you need to support Internet Explorer 11, delete `not ie 11` from ".browserslistrc". Run this to see the list of browsers supported:
 
-    > npx browserslist
+    npx browserslist
 
 You can read about the syntax of ".browserslistrc" on the [Browserslist GitHub page](https://github.com/browserslist/browserslist#readme).
