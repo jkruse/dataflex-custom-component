@@ -1,4 +1,6 @@
-import css from './index.css';
+/*global df, global */
+
+import './index.css';
 
 let decimalSeparator;
 

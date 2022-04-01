@@ -1,6 +1,9 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+
+const folderName = 'Custom';
 
 module.exports = {
     entry: {
@@ -8,15 +11,14 @@ module.exports = {
     },
 
     output: {
-        path: path.join(__dirname, 'AppHtml', 'Custom'),
-        // filename: '[name].js',
-        chunkFilename: '[name].js',
-        publicPath: 'Custom/'
+        path: path.join(__dirname, 'AppHtml', folderName),
+        publicPath: folderName + '/'
     },
 
     plugins: [
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new ESLintPlugin()
     ],
 
     module: {
