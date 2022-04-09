@@ -4,10 +4,12 @@ import './index.css';
 
 let decimalSeparator;
 
+// Use this to convert numbers received from the server (as strings) to numbers
 function stringToNum(string) {
     return df.sys.data.stringToNum(string, decimalSeparator);
 }
 
+// Use this to convert numbers back to whatever regional format the webapp uses
 function numToString(num, decimals) {
     return df.sys.data.numToString(num, decimalSeparator, decimals);
 }
@@ -26,6 +28,7 @@ class WebCustomComponent extends df.WebBaseControl {
         aHtml.push(`<div class="custom-component-wrapper" id="${this._sControlId}">`);
 
         // Insert component markup here
+        aHtml.push('<h1>Hello DataFlex!</h1>');
         
         aHtml.push('</div>');
     }
@@ -35,6 +38,14 @@ class WebCustomComponent extends df.WebBaseControl {
         super.afterRender();
 
         // Insert component bootstrap code here
+    }
+
+    // Example client-side method called with numeric arguments
+    exampleMethod(a, b) {
+        // Arguments from the server are always sent as strings, so remember to convert numeric arguments
+        const sum = stringToNum(a) + stringToNum(b);
+        // You can also convert numbers back to regional format
+        alert(`${a} + ${b} = ${numToString(sum)}`);
     }
 }
 

@@ -18,7 +18,14 @@ Class cWebCustomComponent is a cWebBaseControl
     Procedure End_Construct_Object
         Forward Send End_Construct_Object
 
-        // Publish event methods here
+        // Publish event methods here (and other methods you want to call from the client)
+    End_Procedure
+
+    Procedure ExampleMethod Number a Number b
+        String[] aParams
+        Move a to aParams[0]
+        Move b to aParams[1]
+        Send ClientAction "exampleMethod" aParams
     End_Procedure
     
 End_Class

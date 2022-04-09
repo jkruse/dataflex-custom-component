@@ -35,8 +35,8 @@ and have your client-side code syntax checked, transpiled to run in the browsers
 
 Install NodeJS and Git using `winget`:
 
-    winget install nodejs.lts
-    winget install git.git
+    winget install OpenJS.NodeJS.LTS
+    winget install Git.Git
 
 If that fails, you can download [NodeJS](https://nodejs.org/en/download/) and [Git](https://git-scm.com/download/win) installers and run those.
 
