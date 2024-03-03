@@ -66,7 +66,7 @@ In the command prompt run:
 
 This bundles the client-side of the component into your `AppHtml/Custom` folder, and should end with something similar to
 
-    webpack 5.75.0 compiled successfully in 3495 ms
+    webpack <some version> compiled successfully in <some number> ms
 
 ## Step 5 - Rename your component
 
