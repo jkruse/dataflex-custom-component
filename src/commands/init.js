@@ -11,7 +11,7 @@ const { indexJs } = require('../templates/index-js');
 const { write } = require('../util/write');
 
 /**
- * Implements `dfcc init [--name <namespace>]`.
+ * Implements `df-cc init [--name <namespace>]`.
  * Scaffolds the Vite + ESLint build setup into the current working directory.
  * @param {object} options
  * @param {string} options.name - IIFE global namespace (default "DFCC")
@@ -58,7 +58,7 @@ function init(options) {
     }
 
     console.log('\nDone! Next steps:');
-    console.log('  npx dfcc create <ComponentName>   — generate your first component');
+    console.log('  npx df-cc create <ComponentName>  — generate your first component');
     console.log('  npm run build                     — bundle to AppHtml/Custom/');
     console.log('  npm run watch                     — watch mode for development');
 }

@@ -11,7 +11,7 @@ const { write } = require('../util/write');
 const PASCAL_CASE_RE = /^[A-Z][A-Za-z0-9]*$/;
 
 /**
- * Implements `dfcc create <ComponentName>`.
+ * Implements `df-cc create <ComponentName>`.
  * Generates a JS component file, a CSS file, a DataFlex .pkg file,
  * and adds a named export to src/index.js.
  * @param {string} name - PascalCase component name
@@ -29,7 +29,7 @@ function create(name) {
     // Read namespace from package.json
     const pkgPath = path.join(cwd, 'package.json');
     if (!fs.existsSync(pkgPath)) {
-        console.error('Error: package.json not found. Run `npx dfcc init` first.');
+        console.error('Error: package.json not found. Run `npx df-cc init` first.');
         process.exit(1);
     }
     const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
@@ -54,7 +54,7 @@ function create(name) {
 
     // Guard: src/index.js must exist
     if (!fs.existsSync(indexPath)) {
-        console.error('Error: src/index.js not found. Run `npx dfcc init` first.');
+        console.error('Error: src/index.js not found. Run `npx df-cc init` first.');
         process.exit(1);
     }
 

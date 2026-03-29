@@ -1,6 +1,6 @@
 {
-  "name": "dfcc",
-  "version": "1.0.0",
+  "name": "df-cc",
+  "version": "1.0.1",
   "description": "DataFlex Custom Component CLI — scaffold and generate components for DataFlex webapps",
   "keywords": [
     "dataflex",
@@ -18,7 +18,7 @@
   },
   "type": "commonjs",
   "bin": {
-    "dfcc": "bin/dfcc.js"
+    "df-cc": "bin/dfcc.js"
   },
   "dependencies": {
     "commander": "^14.0.0"

@@ -7,7 +7,7 @@
 function indexJs() {
     return `// Export all custom component classes from this file.
 // Each export will be available as window.<namespace>.<ClassName> after the build.
-// Run \`npx dfcc create <ComponentName>\` to add a new component.
+// Run \`npx df-cc create <ComponentName>\` to add a new component.
 `;
 }
 
