@@ -7,7 +7,7 @@ const { create } = require('../src/commands/create');
 const { version } = require('../package.json');
 
 program
-    .name('dfcc')
+    .name('df-cc')
     .description('DataFlex Custom Component CLI — scaffold and generate components for DataFlex webapps')
     .version(version);
 

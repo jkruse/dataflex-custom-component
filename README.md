@@ -1,4 +1,4 @@
-# dfcc — DataFlex Custom Component CLI
+# df-cc — DataFlex Custom Component CLI
 
 A CLI tool for scaffolding and generating custom components for DataFlex webapps. Write modern JavaScript classes,
 bundle them with Vite, and have them available in your DataFlex application.
@@ -23,7 +23,7 @@ Install NodeJS if you haven't already:
 
 Navigate to your DataFlex project folder and run:
 
-    npx dfcc init
+    npx df-cc init
 
 This creates the build setup in the current directory:
 - `package.json` — Vite + ESLint dependencies and build scripts
@@ -35,14 +35,14 @@ Dependencies are installed automatically.
 
 **Options:**
 
-    npx dfcc init --name MyApp
+    npx df-cc init --name MyApp
 
 Use `--name` to set the global namespace (default: `DFCC`). All components will be available as
 `window.MyApp.<ComponentName>` in the browser.
 
 ### Step 2 — Create a component
 
-    npx dfcc create MyCustomComponent
+    npx df-cc create MyCustomComponent
 
 This generates:
 - `src/MyCustomComponent.js` — JavaScript class extending `df.WebBaseControl`
@@ -53,7 +53,7 @@ And updates `src/index.js` to export the new component.
 
 Run `create` again for each additional component you want in the bundle:
 
-    npx dfcc create MyOtherComponent
+    npx df-cc create MyOtherComponent
 
 ### Step 3 — Build
 
