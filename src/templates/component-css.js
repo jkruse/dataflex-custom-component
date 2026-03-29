@@ -1,5 +1,7 @@
 'use strict';
 
+const { camelToKebab } = require('../util/camel-to-kebab');
+
 /**
  * Generates the CSS file for a new component.
  * @param {string} name - PascalCase component name (e.g. "MyWidget")
@@ -12,13 +14,6 @@ function componentCss(name) {
 .${kebab}-wrapper {
 }
 `;
-}
-
-/** Converts PascalCase to kebab-case */
-function camelToKebab(str) {
-    return str.replace(/([A-Z])/g, (match, letter, offset) =>
-        offset === 0 ? letter.toLowerCase() : '-' + letter.toLowerCase()
-    );
 }
 
 module.exports = { componentCss };

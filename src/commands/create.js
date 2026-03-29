@@ -6,6 +6,7 @@ const path = require('path');
 const { componentJs } = require('../templates/component-js');
 const { componentCss } = require('../templates/component-css');
 const { componentPkg } = require('../templates/component-pkg');
+const { write } = require('../util/write');
 
 const PASCAL_CASE_RE = /^[A-Z][A-Za-z0-9]*$/;
 
@@ -79,14 +80,6 @@ function create(name) {
     console.log(`  CSS:            src/${name}.css`);
     console.log(`  DataFlex class: AppSrc/c${name}.pkg   (psJSClass: "${namespace}.${name}")`);
     console.log('\nRun `npm run build` to bundle, or `npm run watch` during development.');
-}
-
-/** Writes content to a file, logging the path relative to cwd. */
-function write(dir, filename, content) {
-    const fullPath = path.join(dir, filename);
-    const rel = path.relative(process.cwd(), fullPath);
-    fs.writeFileSync(fullPath, content, 'utf8');
-    console.log(`  created  ${rel}`);
 }
 
 module.exports = { create };

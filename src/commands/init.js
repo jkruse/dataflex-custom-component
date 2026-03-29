@@ -8,6 +8,7 @@ const { packageJson } = require('../templates/package-json');
 const { viteConfig } = require('../templates/vite-config');
 const { eslintConfig } = require('../templates/eslint-config');
 const { indexJs } = require('../templates/index-js');
+const { write } = require('../util/write');
 
 /**
  * Implements `dfcc init [--name <namespace>]`.
@@ -57,14 +58,6 @@ function init(options) {
     console.log('  npx dfcc create <ComponentName>   — generate your first component');
     console.log('  npm run build                     — bundle to AppHtml/Custom/');
     console.log('  npm run watch                     — watch mode for development');
-}
-
-/** Writes content to a file, logging the path relative to cwd. */
-function write(dir, filename, content) {
-    const fullPath = path.join(dir, filename);
-    const rel = path.relative(process.cwd(), fullPath);
-    fs.writeFileSync(fullPath, content, 'utf8');
-    console.log(`  created  ${rel}`);
 }
 
 module.exports = { init };

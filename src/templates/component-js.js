@@ -1,5 +1,7 @@
 'use strict';
 
+const { camelToKebab } = require('../util/camel-to-kebab');
+
 /**
  * Generates the JS source file for a new component.
  * @param {string} name - PascalCase component name (e.g. "MyWidget")
@@ -40,14 +42,6 @@ export class ${name} extends df.WebBaseControl {
     }
 }
 `;
-}
-
-/** Converts PascalCase to kebab-case, e.g. "MyWidget" → "my-widget" */
-function camelToKebab(str) {
-    return str
-        .replace(/([A-Z])/g, (match, letter, offset) =>
-            offset === 0 ? letter.toLowerCase() : '-' + letter.toLowerCase()
-        );
 }
 
 module.exports = { componentJs };
