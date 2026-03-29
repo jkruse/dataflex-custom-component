@@ -45,6 +45,9 @@ function init(options) {
     }
     write(srcDir, 'index.js', indexJs());
 
+    // Update .gitignore
+    updateGitignore(cwd);
+
     // Run npm install
     console.log('\nRunning npm install...');
     try {
@@ -61,3 +64,30 @@ function init(options) {
 }
 
 module.exports = { init };
+
+/**
+ * Ensures `node_modules` and `AppHtml/Custom` are listed in .gitignore.
+ * Creates the file if it doesn't exist; appends only the entries that are missing.
+ */
+function updateGitignore(cwd) {
+    const gitignorePath = path.join(cwd, '.gitignore');
+    const required = ['node_modules', 'AppHtml/Custom'];
+
+    const existing = fs.existsSync(gitignorePath)
+        ? fs.readFileSync(gitignorePath, 'utf8')
+        : '';
+
+    const lines = existing.split(/\r?\n/);
+    const missing = required.filter(
+        (entry) => !lines.some((line) => line.trim() === entry)
+    );
+
+    if (missing.length === 0) {
+        console.log('  up-to-date  .gitignore');
+        return;
+    }
+
+    const separator = existing.length > 0 && !existing.endsWith('\n') ? '\n' : '';
+    fs.appendFileSync(gitignorePath, separator + missing.join('\n') + '\n', 'utf8');
+    console.log(`  ${existing.length > 0 ? 'updated' : 'created'}  .gitignore`);
+}
