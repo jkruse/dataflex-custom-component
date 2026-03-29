@@ -1,0 +1,44 @@
+'use strict';
+
+/**
+ * Generates the DataFlex .pkg file for a new component.
+ * @param {string} name - PascalCase component name (e.g. "MyWidget")
+ * @param {string} namespace - IIFE global namespace (e.g. "DFCC")
+ * @returns {string}
+ */
+function componentPkg(name, namespace) {
+    return `Use cWebBaseControl.pkg
+
+Class c${name} is a cWebBaseControl
+
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set psJSClass to "${namespace}.${name}"
+        Set pbShowLabel to False
+
+        { WebProperty=Client }
+        Property Integer piHeight 0
+        { WebProperty=Client }
+        Property Integer piMinHeight 0
+
+        // Add web properties here
+    End_Procedure
+
+    Procedure End_Construct_Object
+        Forward Send End_Construct_Object
+
+        // Publish event methods here (and other methods you want to call from the client)
+    End_Procedure
+
+    Procedure ExampleMethod Number a Number b
+        String[] aParams
+        Move a to aParams[0]
+        Move b to aParams[1]
+        Send ClientAction "exampleMethod" aParams
+    End_Procedure
+
+End_Class
+`;
+}
+
+module.exports = { componentPkg };
