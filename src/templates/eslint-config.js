@@ -5,21 +5,26 @@
  * @returns {string}
  */
 function eslintConfig() {
-    return `import js from '@eslint/js';
-import globals from 'globals';
+    return `import js from "@eslint/js";
+import globals from "globals";
+import { defineConfig } from "eslint/config";
 
-export default [
-    js.configs.recommended,
-    {
-        languageOptions: {
-            globals: {
-                ...globals.browser,
-                df: 'readonly',
-                global: 'writable',
-            },
-        },
+export default defineConfig([{
+    basePath: 'src',
+
+    plugins: {
+        js,
     },
-];
+
+    extends: ["js/recommended"],
+
+    languageOptions: {
+        globals: {
+            ...globals.browser,
+            df: 'readonly',
+        }
+    }
+}]);
 `;
 }
 

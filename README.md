@@ -1,12 +1,13 @@
 # dfcc — DataFlex Custom Component CLI
 
-A CLI tool for scaffolding and generating custom components for DataFlex webapps. Write modern JavaScript classes, bundle them with Vite, and have them available in your DataFlex application.
+A CLI tool for scaffolding and generating custom components for DataFlex webapps. Write modern JavaScript classes,
+bundle them with Vite, and have them available in your DataFlex application.
 
 ## Features
 
 - **Modern JavaScript** — write ES2024 class syntax with full ESLint checking
 - **Vite bundler** — fast builds, watch mode for development
-- **IIFE output** — components are bundled into `AppHtml/Custom/index.js` and loaded as a global namespace object
+- **IIFE output** — components are bundled into `AppHtml/Custom/DFCC.js` and loaded as a global namespace object
 - **Multiple components** — all components share a single bundle
 - **Per-component CSS** — each component gets its own stylesheet
 
@@ -36,7 +37,8 @@ Dependencies are installed automatically.
 
     npx dfcc init --name MyApp
 
-Use `--name` to set the global namespace (default: `DFCC`). All components will be available as `window.MyApp.<ComponentName>` in the browser.
+Use `--name` to set the global namespace (default: `DFCC`). All components will be available as
+`window.MyApp.<ComponentName>` in the browser.
 
 ### Step 2 — Create a component
 
@@ -55,7 +57,7 @@ Run `create` again for each additional component you want in the bundle:
 
 ### Step 3 — Build
 
-Build for production:
+Build for production (runs ESLint first):
 
     npm run build
 
@@ -63,17 +65,13 @@ Watch mode during development (rebuilds on file changes):
 
     npm run watch
 
-Run ESLint without building:
-
-    npm run lint
-
 ### Step 4 — Add to Index.html
 
 Add the bundled files to your `Index.html`:
 
 ```html
-<script src="Custom/index.js"></script>
-<link rel="stylesheet" href="Custom/index.css">
+<script src="Custom/DFCC.js"></script>
+<link rel="stylesheet" href="Custom/DFCC.css">
 ```
 
 ### Step 5 — Use the component in DataFlex
@@ -89,7 +87,9 @@ End_Object
 
 ## How it works
 
-Each JavaScript component class is exported by name from `src/index.js`. Vite bundles everything as an IIFE and assigns the exports to a global namespace object (e.g. `window.DFCC`). The DataFlex `psJSClass` property points to the class using dot notation, e.g. `"DFCC.MyCustomComponent"`.
+Each JavaScript component class is exported by name from `src/index.js`.
+Vite bundles everything as an IIFE and assigns the exports to a global namespace object (e.g. `window.DFCC`).
+The DataFlex `psJSClass` property points to the class using dot notation, e.g. `"DFCC.MyCustomComponent"`.
 
 ## Writing a component
 

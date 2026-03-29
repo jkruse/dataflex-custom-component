@@ -1,6 +1,6 @@
 {
   "name": "dfcc",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "DataFlex Custom Component CLI — scaffold and generate components for DataFlex webapps",
   "keywords": [
     "dataflex",
@@ -8,7 +8,7 @@
     "cli",
     "generator"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/jkruse/dataflex-custom-component",
   "license": "MIT",
   "author": "Jakob Kruse <kruse@kruse-net.dk>",
   "funding": "https://paypal.me/mrkruse",
@@ -18,9 +18,9 @@
     "dfcc": "./bin/dfcc.js"
   },
   "dependencies": {
-    "commander": "^13.0.0"
+    "commander": "^14.0.0"
   },
   "engines": {
-    "node": ">=18.12.0"
+    "node": ">=20"
   }
 }

@@ -7,25 +7,22 @@
  */
 function viteConfig(namespace) {
     return `import { defineConfig } from 'vite';
-import eslint from 'vite-plugin-eslint2';
 
 export default defineConfig({
-    plugins: [eslint()],
     build: {
         lib: {
             entry: './src/index.js',
             formats: ['iife'],
-            // All exported component classes are available as window.${namespace}.<ClassName>
             name: '${namespace}',
-            fileName: () => 'index.js',
+            fileName: () => '${namespace}.js',
+            cssFileName: '${namespace}',
         },
         outDir: 'AppHtml/Custom',
-        emptyOutDir: true,
         rollupOptions: {
-            output: {
-                // Rename extracted CSS from the default "style.css" to "index.css"
-                assetFileNames: (assetInfo) =>
-                    assetInfo.name === 'style.css' ? 'index.css' : assetInfo.name,
+            onwarn: (warning, defaultHandler) => {
+                if (warning.code !== 'FILE_NAME_CONFLICT') {
+                    defaultHandler(warning);
+                }
             },
         },
     },

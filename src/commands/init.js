@@ -55,8 +55,8 @@ function init(options) {
 
     console.log('\nDone! Next steps:');
     console.log('  npx dfcc create <ComponentName>   — generate your first component');
-    console.log('  npm run build                      — bundle to AppHtml/Custom/');
-    console.log('  npm run watch                      — watch mode for development');
+    console.log('  npm run build                     — bundle to AppHtml/Custom/');
+    console.log('  npm run watch                     — watch mode for development');
 }
 
 /** Writes content to a file, logging the path relative to cwd. */

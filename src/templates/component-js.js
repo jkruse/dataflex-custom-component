@@ -6,9 +6,7 @@
  * @returns {string}
  */
 function componentJs(name) {
-    return `/*global df */
-
-import './${name}.css';
+    return `import './${name}.css';
 
 export class ${name} extends df.WebBaseControl {
     constructor(sName, oParent) {
