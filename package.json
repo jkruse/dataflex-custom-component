@@ -12,10 +12,13 @@
   "license": "MIT",
   "author": "Jakob Kruse <kruse@kruse-net.dk>",
   "funding": "https://paypal.me/mrkruse",
-  "repository": "github:jkruse/dataflex-custom-component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkruse/dataflex-custom-component.git"
+  },
   "type": "commonjs",
   "bin": {
-    "dfcc": "./bin/dfcc.js"
+    "dfcc": "bin/dfcc.js"
   },
   "dependencies": {
     "commander": "^14.0.0"
