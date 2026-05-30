@@ -21,9 +21,9 @@
     "df-cc": "bin/dfcc.js"
   },
   "dependencies": {
-    "commander": "^14.0.0"
+    "commander": "^15.0.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12"
   }
 }
